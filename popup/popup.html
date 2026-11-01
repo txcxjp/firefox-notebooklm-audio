@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NotebookLM Audio Podcaster</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-area">
+      <img src="../icons/icon-48.png" alt="Logo" class="logo">
+      <h1>NotebookLM Audio</h1>
+    </div>
+    <a href="#" id="openOptionsBtn" class="icon-btn" title="設定を開く">⚙️</a>
+  </header>
+
+  <main class="main">
+    <div class="card">
+      <label for="pageTitle" class="label">タイトル</label>
+      <input type="text" id="pageTitle" class="input" placeholder="記事のタイトル">
+
+      <label for="pageUrl" class="label">対象URL</label>
+      <input type="url" id="pageUrl" class="input" placeholder="https://example.com/article">
+
+      <button id="startBtn" class="btn primary-btn">
+        <span class="btn-icon">🎙️</span>
+        <span class="btn-text">日本語で音声解説を作成</span>
+      </button>
+
+      <button id="downloadCurrentBtn" class="btn secondary-btn" style="display: none; margin-top: 8px; width: 100%; background: #1e8e3e; color: white;">
+        <span class="btn-icon">💾</span>
+        <span class="btn-text">現在の音声解説を保存（検証用）</span>
+      </button>
+    </div>
+
+    <section class="tasks-section">
+      <div class="section-header">
+        <h2>進行中のタスク</h2>
+        <button id="clearTasksBtn" class="text-btn">履歴消去</button>
+      </div>
+      <div id="tasksList" class="tasks-list">
+        <div class="empty-state">進行中のタスクはありません</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>バックグラウンドで安全に実行されます</p>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

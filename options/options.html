@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NotebookLM Audio Podcaster - 設定</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="title-row">
+        <img src="../icons/icon-48.png" alt="Logo" class="logo">
+        <h1>NotebookLM Audio Podcaster 設定</h1>
+      </div>
+      <p class="subtitle">音声解説（Audio Overview）の生成プロンプトや保存先をカスタマイズできます。</p>
+    </header>
+
+    <main class="main">
+      <section class="section">
+        <h2>🎙️ 音声解説プロンプト（指示内容）</h2>
+        <p class="description">
+          NotebookLMの「音声解説をカスタマイズ」欄に自動入力される指示文です。
+          2人のホストが日本語で自然に対話するようにプロンプトを調整できます。
+        </p>
+        <textarea id="promptInput" rows="6" class="textarea" placeholder="プロンプトを入力"></textarea>
+        <div class="btn-group">
+          <button id="resetPromptBtn" class="btn secondary-btn">デフォルトの日本語プロンプトに戻す</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>📁 音声ファイルの保存設定</h2>
+        <div class="form-row">
+          <label for="subdirInput" class="label">ダウンロード先サブフォルダ名</label>
+          <div class="input-desc">Chrome / Firefoxの「ダウンロード」フォルダ配下に作成されるフォルダ名です。</div>
+          <div class="input-prefix-wrapper">
+            <span class="prefix">Downloads/</span>
+            <input type="text" id="subdirInput" class="input" value="NotebookLM">
+            <span class="suffix">/YYYYMMDD_タイトル.mp3</span>
+          </div>
+        </div>
+
+        <div class="form-row checkbox-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="autoCloseTab" checked>
+            <span>ダウンロード完了後に、自動操作用タブを自動で閉じる</span>
+          </label>
+        </div>
+      </section>
+
+      <div class="save-area">
+        <button id="saveBtn" class="btn primary-btn">設定を保存する</button>
+        <span id="saveStatus" class="save-status"></span>
+      </div>
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "NotebookLM Audio Podcaster",
+  "version": "1.0.0",
+  "description": "閲覧中のWebページURLからNotebookLMの日本語音声解説（Audio Overview）を自動生成し、MP3としてダウンロードします。",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "notebooklm-audio-podcaster@local.dev",
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "downloads",
+    "notifications",
+    "storage",
+    "webNavigation",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://notebook.google/*",
+    "https://notebooklm.google/*",
+    "https://notebook.google.com/*",
+    "https://notebooklm.google.com/*",
+    "https://accounts.google.com/*",
+    "https://*.googleusercontent.com/*"
+  ],
+  "background": {
+    "scripts": ["background/background.js"]
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    },
+    "default_title": "NotebookLM 音声解説を作成"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://notebook.google/*",
+        "https://notebooklm.google/*",
+        "https://notebook.google.com/*",
+        "https://notebooklm.google.com/*"
+      ],
+      "js": ["content-scripts/automator.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}
