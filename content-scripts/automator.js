@@ -207,7 +207,12 @@
         document.body.appendChild(banner);
       }
       banner.style.background = isError ? '#d93025' : '#1a73e8';
-      banner.innerHTML = `🎙️ <span>${text}</span>`;
+      banner.textContent = '';
+      const icon = document.createTextNode('🎙️ ');
+      const span = document.createElement('span');
+      span.textContent = text;
+      banner.appendChild(icon);
+      banner.appendChild(span);
     } catch (e) {}
   }
 

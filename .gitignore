@@ -15,5 +15,6 @@ Thumbs.db
 # Distribution & builds
 dist/
 build/
+web-ext-artifacts/
 *.zip
 *.xpi

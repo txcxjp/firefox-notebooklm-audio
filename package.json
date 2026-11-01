@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Firefox extension to automatically generate and download NotebookLM Audio Overviews",
   "scripts": {
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "lint": "npx web-ext lint",
+    "build": "npx web-ext build --overwrite-dest"
   },
   "type": "module",
   "keywords": [
@@ -12,6 +14,16 @@
     "notebooklm",
     "audio-overview"
   ],
-  "author": "",
-  "license": "MIT"
+  "author": "txcxjp",
+  "license": "MIT",
+  "webExt": {
+    "ignoreFiles": [
+      "tests",
+      "tests/**",
+      "CONVERSATION_HISTORY.md",
+      "package.json",
+      "package-lock.json",
+      "web-ext-artifacts/**"
+    ]
+  }
 }
